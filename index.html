@@ -25,7 +25,15 @@
 	</head>
 
 	<body>  
-		<!-- include the main game file -->
+		
+		<script type="text/javascript">
+			if(typeof(Storage) !== "undefined") {
+			    // All good
+			} else {
+			    sweetAlert("Cookies disabled!", "You need to turn on Cookies or your data is not going to be saved!", "error");
+			}
+		</script>
+
 		<script src="js/main.js"></script>
 
 	</body>

@@ -35,6 +35,10 @@ SideScroller.Menu.prototype = {
     this.lastscore_text = this.game.add.bitmapText(400, 150, 'myFont3', 'Your record: 0', 20)
     this.lastscore_text.align = 'center';
     this.lastscore_text.x = this.game.width / 2 - this.lastscore_text.textWidth / 2;
+
+    this.allgames_text = this.game.add.bitmapText(400, 170, 'myFont3', 'Games played: 0', 20)
+    this.allgames_text.align = 'center';
+    this.allgames_text.x = this.game.width / 2 - this.allgames_text.textWidth / 2;
     // this.score_text.anchor.setTo(0.5);
     
     this.coin_text = this.game.add.bitmapText(50, 10, 'myFont3', '0', 24)
@@ -203,6 +207,9 @@ SideScroller.Menu.prototype = {
   if(localStorage.getItem("specialPlayer")==null){
     localStorage.setItem("specialPlayer",false);
   }
+  if(localStorage.getItem("gamesPlayed")==null){
+    localStorage.setItem("gamesPlayed",0);
+  }
 
   if(localStorage.getItem("doubleCoin")==null){
     localStorage.setItem("doubleCoin", false);
@@ -227,5 +234,6 @@ SideScroller.Menu.prototype = {
   this.coin_text.text = m;
   this.score_text.text = "Your record: "+maxScore;
   this.lastscore_text.text = "Last game: "+lastScore;
+  this.allgames_text.text = "Games played: "+localStorage.getItem("gamesPlayed");
 }
 };

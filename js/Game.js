@@ -254,9 +254,12 @@ SideScroller.Game.prototype = {
          this.game.time.events.add(1000, this.openPanel, this);
       }
       ended=true;
+
       pl.kill();
+      
       magnetActivated=false;
       shieldActivated=false;
+      
       emitter = this.game.add.emitter(this.player.position.x, this.player.position.y, 100);
       emitter.makeParticles('particle');
       emitter.gravity = 250;
@@ -297,6 +300,10 @@ SideScroller.Game.prototype = {
       }
 
       localStorage.setItem("superLife", false);
+
+      var temp_gamesPlayed = parseInt(localStorage.getItem("gamesPlayed"));
+      temp_gamesPlayed++;
+      localStorage.setItem("gamesPlayed",temp_gamesPlayed);
 
       //this.player.body.gravity.y=1200;
      // this.game.add.tween(this.player).to( { angle: -90 }, 500, Phaser.Easing.Linear.None, true);
