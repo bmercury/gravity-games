@@ -336,7 +336,7 @@ SideScroller.Game.prototype = {
               temp_money+=slicePrizeNumbers[prize];
               localStorage.setItem("money",temp_money);
             }else{
-              swal("Sorry, you got nothing :(\nMaybe next time you will be better :P");
+              sweetAlert("Ohh, bad luck!", "Maybe next time you will be better :P", "error");
             }
             spinned++;
             if(score>=100&&spinned<2){
@@ -413,7 +413,7 @@ SideScroller.Game.prototype = {
 
   spawnCoin: function() {
     if(!ended){
-      var coin = this.game.add.sprite(800, Math.floor((Math.random() * 500) + 1), 'coin');
+      var coin = this.game.add.sprite(800, rint(100,400), 'coin');
       this.coins.add(coin);
 
       this.game.physics.arcade.enable(coin);
