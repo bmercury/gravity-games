@@ -28,15 +28,15 @@ SideScroller.Menu.prototype = {
     // this.gravitySound = this.game.add.audio('swing');
 
     //Texts
-    this.score_text = this.game.add.bitmapText(400, 100, 'myFont3', 'Your record: 0', 36)
+    this.score_text = this.game.add.bitmapText(400, 100, 'myFont3', 'Your record: 0', 34)
     this.score_text.align = 'center';
     this.score_text.x = this.game.width / 2 - this.score_text.textWidth / 2;
 
-    this.lastscore_text = this.game.add.bitmapText(400, 150, 'myFont3', 'Your record: 0', 20)
+    this.lastscore_text = this.game.add.bitmapText(400, 140, 'myFont3', 'Your record: 0', 20)
     this.lastscore_text.align = 'center';
     this.lastscore_text.x = this.game.width / 2 - this.lastscore_text.textWidth / 2;
 
-    this.allgames_text = this.game.add.bitmapText(400, 170, 'myFont3', 'Games played: 0', 20)
+    this.allgames_text = this.game.add.bitmapText(400, 165, 'myFont3', 'Games played: 0', 20)
     this.allgames_text.align = 'center';
     this.allgames_text.x = this.game.width / 2 - this.allgames_text.textWidth / 2;
     // this.score_text.anchor.setTo(0.5);
