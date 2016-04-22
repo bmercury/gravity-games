@@ -57,8 +57,8 @@ SideScroller.Menu.prototype = {
     bonusbtn = this.game.add.button(335, 425, 'bonus_btn', this.openBonus, this);
     bonusbtn.anchor.setTo(0.5);
 
-    charactersbtn = this.game.add.button(465, 425, 'wheel_button', this.startGame, this);
-    charactersbtn.anchor.setTo(0.5);
+    helpbtn = this.game.add.button(465, 425, 'help_button', this.help, this);
+    helpbtn.anchor.setTo(0.5);
 
     if(localStorage.getItem("sound")=="true"){
       soundbtn = this.game.add.button(600, 425, 'sound_btn', this.toggleSound, this);
@@ -80,6 +80,12 @@ SideScroller.Menu.prototype = {
       localStorage.setItem("sound",true);
       soundbtn.loadTexture("sound_btn");
     }
+  },
+
+  help: function() {
+    swal({   title: "Help",
+      text: "<b>How to play?</b><br><p>Press <b>SPACE</b> to flip gravity<br>Avoid boxes<br>Collect coins<br><i>You can also buy bonuses to help you get bigger score</i><br><i>There is a special character to unlock. how? Keep discovering :P</i></p><br>The graphics were made by me(Except the space background image I found on Google)<br>Sounds are taken from freesound.org<br><b>Good luck!<b>",
+      html: true });
   },
 
   getItems: function() {

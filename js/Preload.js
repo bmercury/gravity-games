@@ -10,6 +10,14 @@ SideScroller.Preload.prototype = {
     this.preloadBar.anchor.setTo(0.5);
     this.preloadBar.scale.setTo(3);
 
+    this.hint = this.game.add.bitmapText(400, 200, 'myFont3', 'Game not loading? Check if you have cookies enabled :P', 20)
+    this.hint.align = 'center';
+    this.hint.x = this.game.width / 2 - this.hint.textWidth / 2;
+
+    this.author = this.game.add.bitmapText(400, 400, 'myFont3', 'Made by Reinards 2016', 20)
+    this.author.align = 'center';
+    this.author.x = this.game.width / 2 - this.author.textWidth / 2;
+
     this.load.setPreloadSprite(this.preloadBar);
 
     //load game assets
@@ -23,7 +31,7 @@ SideScroller.Preload.prototype = {
     this.load.image('wheel_room', 'assets/images/wheel_room.png');
     this.load.image('pin', 'assets/images/pin.png');
     this.load.image('pin2', 'assets/images/pin2.png');
-    this.load.image('wheel_button', 'assets/images/wheel_button.png');
+    this.load.image('help_button', 'assets/images/help.png');
 
     this.load.image('bg', 'assets/images/bg.png');
     this.load.image('space', 'assets/images/space.png');
@@ -38,7 +46,6 @@ SideScroller.Preload.prototype = {
     this.load.image('bonus_btn', 'assets/images/bonus.png');
     this.load.image('sound_btn', 'assets/images/sound.png');
     this.load.image('muted_btn', 'assets/images/muted.png');
-    this.load.image('character_btn', 'assets/images/characters.png');
 
     this.load.image('item1', 'assets/images/item1.png');//Coins
     this.load.image('item2', 'assets/images/item2.png');//Life
@@ -52,7 +59,7 @@ SideScroller.Preload.prototype = {
 
     this.load.bitmapFont('myFont', 'assets/desyrel.png', 'assets/desyrel.xml');
     this.load.bitmapFont('myFont2', 'assets/gem.png', 'assets/gem.xml');
-    this.load.bitmapFont('myFont3', 'assets/nokia.png', 'assets/nokia.xml');
+    // this.load.bitmapFont('myFont3', 'assets/nokia.png', 'assets/nokia.xml');
     
 
     this.load.audio('coin', 'assets/audio/coin.ogg');

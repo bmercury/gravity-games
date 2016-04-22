@@ -7,10 +7,11 @@ SideScroller.Boot.prototype = {
   preload: function() {
     //assets we'll use in the loading screen
     this.load.image('preloadbar', 'assets/images/preloader-bar.png');
+    this.load.bitmapFont('myFont3', 'assets/nokia.png', 'assets/nokia.xml');
   },
   create: function() {
     //loading screen will have a white background
-    this.game.stage.backgroundColor = '#fff';
+    this.game.stage.backgroundColor = '#1F0045';
 
     //scaling options
     // this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
