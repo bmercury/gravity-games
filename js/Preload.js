@@ -62,9 +62,9 @@ SideScroller.Preload.prototype = {
     this.load.audio('explosion', 'assets/audio/explosion.ogg');
     this.load.audio('magnet', 'assets/audio/magnet.ogg');
     this.load.audio('shield', 'assets/audio/shield.ogg');
-    this.load.audio('bgm1', 'assets/audio/bgm1.wav');
-    this.load.audio('bgm2', 'assets/audio/bgm2.wav');
-    this.load.audio('bgm3', 'assets/audio/bgm3.wav');
+    // this.load.audio('bgm1', 'assets/audio/bgm1.wav');
+    // this.load.audio('bgm2', 'assets/audio/bgm2.wav');
+    // this.load.audio('bgm3', 'assets/audio/bgm3.wav');
   },
   create: function() {
     this.state.start('Menu');
