@@ -398,7 +398,7 @@ SideScroller.Game.prototype = {
       this.game.physics.arcade.enable(bomb);
       bomb.outOfBoundsKill = true;
         bomb.body.velocity.x = bombSpeed+(rint(50, 200)*-1);
-        console.log(bombSpeed+(rint(50, 200)*-1));
+        // console.log(bombSpeed+(rint(50, 200)*-1));
       bomb.checkWorldBounds = true;
       var rsize = rint(30,65);
       bomb.width = rsize;
@@ -418,7 +418,7 @@ SideScroller.Game.prototype = {
 
       this.game.physics.arcade.enable(coin);
       coin.outOfBoundsKill = true;
-      coin.body.velocity.x = -400;
+      coin.body.velocity.x = -300;
       coin.checkWorldBounds = true;
     }
   },
