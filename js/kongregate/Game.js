@@ -337,9 +337,6 @@ SideScroller.Game.prototype = {
 
 
           spinTween.onComplete.add(function(){
-            if(slicePrizeNumbers[prize]==800){
-              this.game.camera.flash("0xFFEA00");
-            }
             if(slicePrizes[prize]!="BAD LUCK!"){
               swal("Wheel of Fortune!", "You won: "+slicePrizes[prize], "success");
               var temp_money = parseInt(localStorage.getItem("money"));
