@@ -241,9 +241,6 @@ SideScroller.Game.prototype = {
       this.playSound(this.breakSound);
     }else{
 
-      //Kongregate highscore
-      kongregate.stats.submit("highscore",score);
-
       this.game.camera.flash("0xE83838");
 
       //Unlock Niks
@@ -306,6 +303,10 @@ SideScroller.Game.prototype = {
       var temp_gamesPlayed = parseInt(localStorage.getItem("gamesPlayed"));
       temp_gamesPlayed++;
       localStorage.setItem("gamesPlayed",temp_gamesPlayed);
+
+      //Kongregate
+      kongregate.stats.submit("highscore",score);
+      kongregate.stats.submit("gamesplayed",temp_gamesPlayed);
 
       //this.player.body.gravity.y=1200;
      // this.game.add.tween(this.player).to( { angle: -90 }, 500, Phaser.Easing.Linear.None, true);
