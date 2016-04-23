@@ -84,7 +84,7 @@ SideScroller.Menu.prototype = {
 
   help: function() {
     swal({   title: "Help",
-      text: "<b>How to play?</b><br><p>Press <b>SPACE</b> to flip gravity<br>Avoid boxes<br>Collect coins<br><i>You can also buy bonuses to help you get bigger score</i><br><i>There is a special character to unlock. how? Keep discovering :P</i></p><br>The graphics were made by me(Except the space background image I found on Google)<br>Sounds are taken from freesound.org<br><b>Good luck!<b>",
+      text: "<b>How to play?</b><br><p>Press <b>SPACE</b> to flip gravity<br>Avoid boxes<br>Collect coins<br>Press 1 to activate coin magnet<br>Press 2 to activate shield<br>Press 3 to activate explosion<br><i>You can also buy bonuses to help you get bigger score</i><br><i>There is a special character to unlock. how? Keep discovering :P</i></p><br>The graphics were made by me(Except the space background image I found on Google)<br>Sounds are taken from freesound.org<br><b>Good luck!<b>",
       html: true });
   },
 
