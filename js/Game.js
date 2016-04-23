@@ -241,7 +241,7 @@ SideScroller.Game.prototype = {
       this.playSound(this.breakSound);
     }else{
 
-      kongregate.stats.submit("highscor",score);
+      kongregate.stats.submit("highscore",score);
 
       this.game.camera.flash("0xE83838");
 
