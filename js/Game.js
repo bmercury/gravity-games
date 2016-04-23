@@ -228,8 +228,8 @@ SideScroller.Game.prototype = {
 
     this.playSound(this.coinSound);
 
-    var a = this.game.add.tween(this.coin_icon.scale).to( { y: 1.3, x: 1.3  }, 150, Phaser.Easing.Linear.None, true);
-    a.yoyo(true, 300);
+    var a = this.game.add.tween(this.coin_icon.scale).to( { y: 1.3, x: 1.3  }, 100, Phaser.Easing.Linear.None, true);
+    a.yoyo(true, 150);
     //this.game.add.tween(this.coin_icon.scale).to( { y: 1}, 200, Phaser.Easing.Linear.None, true);
   },
 
