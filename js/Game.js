@@ -241,6 +241,8 @@ SideScroller.Game.prototype = {
       this.playSound(this.breakSound);
     }else{
 
+      kongregate.stats.submit("highscor",score);
+
       this.game.camera.flash("0xE83838");
 
       //Unlock Niks
