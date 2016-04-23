@@ -239,13 +239,15 @@ SideScroller.Game.prototype = {
       this.playSound(this.breakSound);
     }else{
 
+      this.game.camera.flash("0xE83838");
+
       //Unlock Niks
       if(score>=100 && localStorage.getItem("specialPlayer")=="false"){
         localStorage.setItem("specialPlayer",true);
         swal("WoW!!!","You unlocked our special character - Niks", "success");
         this.game.time.events.add(2500, this.openPanel, this);
         this.game.time.events.add(2500, this.openWheel, this);
-      }if(score>30){
+      }if(score>=30){
         //Wheel of fortune
         this.game.time.events.add(1000, this.openPanel, this);
         this.game.time.events.add(1000, this.openWheel, this);
@@ -337,6 +339,9 @@ SideScroller.Game.prototype = {
 
 
           spinTween.onComplete.add(function(){
+            if(slicePrizeNumbers[prize]==800){
+              this.game.camera.flash("0xFFEA00");
+            }
             if(slicePrizes[prize]!="BAD LUCK!"){
               swal("Wheel of Fortune!", "You won: "+slicePrizes[prize], "success");
               var temp_money = parseInt(localStorage.getItem("money"));
@@ -350,7 +355,7 @@ SideScroller.Game.prototype = {
               canSpin=true;
             }else if(score>=150&&spinned<3){
               canSpin=true;
-            }else if(score>200&&spinned<5){
+            }else if(score>=200&&spinned<5){
               canSpin=true;
             }else{
               room.destroy();
@@ -466,6 +471,7 @@ SideScroller.Game.prototype = {
   },
   activateShield: function() {
     if(localStorage.getItem("shield")=="true" && !shieldActivated){
+      this.game.camera.flash("0x477BD6");
       localStorage.setItem("shield",false);
       shieldActivated=true;
       this.playSound(this.shieldSound);
@@ -476,6 +482,7 @@ SideScroller.Game.prototype = {
     if(localStorage.getItem('explosion')=="true" && !explosionUsed){
       explosionUsed=true;
       this.playSound(this.explosionSound);
+      this.game.camera.shake();
       this.bombs.forEach(function(item) {
         var tem = this.game.add.emitter(item.position.x, item.position.y, 50);
         tem.makeParticles('particle2');
