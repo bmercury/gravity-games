@@ -55,7 +55,7 @@ SideScroller.Game.prototype = {
 
     score = 0;
     spinned=0;
-    coins = 0;
+    coins = parseInt(localStorage.getItem("money"));
     bombSpeed=-150;
     bombRate=2000;
     ended=false;
@@ -137,7 +137,7 @@ SideScroller.Game.prototype = {
     //Texts
     this.score_text = this.game.add.bitmapText(10, 10, 'myFont3', 'Score: 0', 22)
     //this.score_text = this.game.add.text(10, 10, "Score: 0", style);
-    this.coin_text = this.game.add.bitmapText(50, 50, 'myFont3', '0', 24)
+    this.coin_text = this.game.add.bitmapText(50, 50, 'myFont3', localStorage.getItem("money"), 24)
     this.coin_icon = this.game.add.sprite(25, 60, 'coin');
     this.coin_icon.scale.setTo(0.6);
     this.coin_icon.anchor.setTo(0.5);
@@ -281,14 +281,9 @@ SideScroller.Game.prototype = {
       }, this);
 
 
-      var tempMoney = coins;
-      
       var tempScore = score;
 
-      var tempMoney2 = parseInt(localStorage.getItem("money"));
-
-      tempMoney2+=coins;
-      localStorage.setItem("money",tempMoney2);
+      localStorage.setItem("money",coins);
 
       var tempScore2 = parseInt(localStorage.getItem("max_score"));
       
