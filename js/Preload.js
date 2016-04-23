@@ -6,19 +6,30 @@ SideScroller.Preload = function(){};
 SideScroller.Preload.prototype = {
   preload: function() {
     //show loading screen
-    this.preloadBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'preloadbar');
+    this.preloadBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY+10, 'preloadbar');
     this.preloadBar.anchor.setTo(0.5);
     this.preloadBar.scale.setTo(3);
 
-    this.hint = this.game.add.bitmapText(400, 200, 'myFont3', 'Game not loading? Check if you have cookies enabled :P', 20)
+    this.icon = this.add.sprite(400,150, 'icon');
+    this.icon.anchor.setTo(0.5);
+    
+    // this.progress = this.game.add.text(this.game.world.centerX, this.game.world.centerY+50, '0%', {fill: 'white'});
+    // this.progress.anchor.setTo(.5,.5);
+
+    this.progress = this.game.add.bitmapText(400, 350, 'myFont3', 'Files loaded: ', 20)
+    this.progress.align = 'center';
+    this.progress.x = this.game.width / 2 - this.progress.textWidth / 2 -25;
+
+    this.hint = this.game.add.bitmapText(400, 500, 'myFont3', 'Game not loading? Check if you have cookies enabled :P', 20)
     this.hint.align = 'center';
     this.hint.x = this.game.width / 2 - this.hint.textWidth / 2;
 
-    this.author = this.game.add.bitmapText(400, 400, 'myFont3', 'Made by Reinards 2016', 20)
+    this.author = this.game.add.bitmapText(400, 550, 'myFont3', 'Made by Reinards 2016', 20)
     this.author.align = 'center';
     this.author.x = this.game.width / 2 - this.author.textWidth / 2;
 
     this.load.setPreloadSprite(this.preloadBar);
+    this.game.load.onFileComplete.add(this.fileComplete, this);
 
     //load game assets
     this.load.spritesheet('player1', 'assets/images/player1.png', 110, 160, 19);
@@ -72,6 +83,9 @@ SideScroller.Preload.prototype = {
     // this.load.audio('bgm1', 'assets/audio/bgm1.wav');
     // this.load.audio('bgm2', 'assets/audio/bgm2.wav');
     // this.load.audio('bgm3', 'assets/audio/bgm3.wav');
+  },
+  fileComplete: function(progress, cacheKey, success, totalLoaded, totalFiles) {
+    this.progress.text = "Files loaded: "+totalLoaded+"/"+totalFiles;
   },
   create: function() {
     this.state.start('Menu');

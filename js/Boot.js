@@ -7,6 +7,7 @@ SideScroller.Boot.prototype = {
   preload: function() {
     //assets we'll use in the loading screen
     this.load.image('preloadbar', 'assets/images/preloader-bar.png');
+    this.load.image('icon', 'assets/images/game_icon.png');
     this.load.bitmapFont('myFont3', 'assets/nokia.png', 'assets/nokia.xml');
   },
   create: function() {
