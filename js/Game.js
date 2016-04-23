@@ -23,17 +23,11 @@ var shieldActivated=false;
 var coinActivated=false;
 
 //Wheel of fortune
-
-// the spinning wheel
 var wheel; 
-// can the wheel spin?
 var canSpin;
-// slices (prizes) placed in the wheel
 var slices = 8;
-// prize names, starting from 12 o'clock going clockwise
 var slicePrizes = ["JACKPOT!!!", "1 COIN", "250 COINS", "BAD LUCK!", "50 COINS", "100 COINS", "10 COINS", "BAD LUCK!"];
 var slicePrizeNumbers = [800,1,250,0,50,100,10,0];
-// the prize you are about to win
 var prize;
 var room;
 var pin;
@@ -107,6 +101,8 @@ SideScroller.Game.prototype = {
 
 
     this.player.animations.add('walk');
+
+    //Set keys
     
     var spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     spaceKey.onDown.add(this.changeGravity, this);
@@ -144,9 +140,9 @@ SideScroller.Game.prototype = {
 
     this.game.time.events.add(bombRate, this.spawnBomb, this);
     this.game.time.events.loop(2000, this.spawnCoin, this);
+    
     this.countScore();
-
-
+    // this.spawnPowerup();
     // bgmusic = this.game.add.audio('bgm1');
     // bgmusic2 = this.game.add.audio('bgm2');
     // bgmusic3 = this.game.add.audio('bgm3');
@@ -167,23 +163,25 @@ SideScroller.Game.prototype = {
       this.ground.tilePosition.x -= 5;
       this.light.tilePosition.x -= 5;
 
+      //Magnet
       if(magnetActivated){
         this.coins.forEach(function(item) {
           this.game.physics.arcade.moveToObject(item, this.player, 1000);
         }, this);
       }
 
+      //Shield
       if(shieldActivated){
         this.player.tint = 0x0A91FF;
       }else{
         this.player.tint = 0xffffff;
       }
 
-      if(this.player.position.y>550)this.player.position.y = 400;
-
       //collision
       this.game.physics.arcade.collide(this.player, this.col_bottom);
       this.game.physics.arcade.collide(this.player, this.col_top);
+
+
       if(shieldActivated){
         this.game.physics.arcade.overlap(this.player, this.bombs, this.shieldAction, null, this);
       }else{
@@ -241,6 +239,7 @@ SideScroller.Game.prototype = {
       this.playSound(this.breakSound);
     }else{
 
+      //Kongregate highscore
       kongregate.stats.submit("highscore",score);
 
       this.game.camera.flash("0xE83838");
@@ -421,6 +420,20 @@ SideScroller.Game.prototype = {
     }
     
   },
+  // spawnPowerup: function() {
+  //   if(!ended){
+  //     var powerup = this.game.add.sprite(800, rint(150,350), 'powerup');
+
+  //     this.game.physics.arcade.enable(powerup);
+  //     powerup.checkWorldBounds = true;
+  //     powerup.outOfBoundsKill = true;
+  //     powerup.body.velocity.x = -100;
+
+
+    
+  //     this.game.time.events.add(20000, this.spawnPowerup, this); 
+  //   }
+  // },
 
   spawnCoin: function() {
     if(!ended){

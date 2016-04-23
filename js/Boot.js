@@ -1,37 +1,26 @@
 kongregateAPI.loadAPI(function(){
-          window.kongregate = kongregateAPI.getAPI();
-     //     alert("Hi");
-     
-          // kongregate.services.addEventListener('login', function(){
-          //   alert("Logged in");
-          // });
+  window.kongregate = kongregateAPI.getAPI();
 });
 
 var SideScroller = SideScroller || {};
 
 SideScroller.Boot = function(){};
 
-//setting game configuration and loading the assets for the loading screen
+
 SideScroller.Boot.prototype = {
   preload: function() {
-    //assets we'll use in the loading screen
+    //Loading screen assets
     this.load.image('preloadbar', 'assets/images/preloader-bar.png');
     this.load.image('icon', 'assets/images/game_icon.png');
     this.load.bitmapFont('myFont3', 'assets/nokia.png', 'assets/nokia.xml');
   },
   create: function() {
-    //loading screen will have a white background
     this.game.stage.backgroundColor = '#1F0045';
 
-    //scaling options
-    // this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-    
-    //have the game centered horizontally
+    //Centering
     this.scale.pageAlignHorizontally = true;
     this.scale.pageAlignVertically = true;
 
-    //screen size will be set automatically
-    // this.scale.setScreenSize(true);
 
     //physics system
     this.game.physics.startSystem(Phaser.Physics.ARCADE);

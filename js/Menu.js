@@ -5,7 +5,6 @@ SideScroller.Menu = function(){};
 var style = { font: "24px Arial", fill: "#000"};
 
 var playbtn;
-
 var pubMoney;
 
 SideScroller.Menu.prototype = {
@@ -23,9 +22,7 @@ SideScroller.Menu.prototype = {
     spaceKey.onDown.add(this.startGame, this);
 
     //sounds
-    // this.coinSound = this.game.add.audio('coin');
     this.deathSound = this.game.add.audio('pop');
-    // this.gravitySound = this.game.add.audio('swing');
 
     //Texts
     this.score_text = this.game.add.bitmapText(400, 100, 'myFont3', 'Your record: 0', 34)
@@ -39,8 +36,7 @@ SideScroller.Menu.prototype = {
     this.allgames_text = this.game.add.bitmapText(400, 165, 'myFont3', 'Games played: 0', 20)
     this.allgames_text.align = 'center';
     this.allgames_text.x = this.game.width / 2 - this.allgames_text.textWidth / 2;
-    // this.score_text.anchor.setTo(0.5);
-    
+
     this.coin_text = this.game.add.bitmapText(50, 10, 'myFont3', '0', 24)
     this.coin_icon = this.game.add.sprite(25, 20, 'coin');
     this.coin_icon.scale.setTo(0.6);
@@ -191,8 +187,7 @@ SideScroller.Menu.prototype = {
 
   },
 
-  setData: function(){
-
+  setData: function() {
   var m = localStorage.getItem("money");
   var maxScore = localStorage.getItem("max_score");
   var lastScore = localStorage.getItem("last_score");
