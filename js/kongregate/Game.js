@@ -208,9 +208,9 @@ SideScroller.Game.prototype = {
     if(!ended){
       score++;
       if(localStorage.getItem("specialPlayer")=="true"){
-        this.game.time.events.add(700, this.countScore, this);
+        this.game.time.events.add(800, this.countScore, this);
       }else{
-        this.game.time.events.add(1500, this.countScore, this);
+        this.game.time.events.add(1200, this.countScore, this);
       }
       this.score_text.text = 'Score: ' + score;
     }
