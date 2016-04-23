@@ -1,3 +1,12 @@
+kongregateAPI.loadAPI(function(){
+          window.kongregate = kongregateAPI.getAPI();
+          alert("Hi");
+     
+          kongregate.services.addEventListener('login', function(){
+            alert("Logged in");
+          });
+        });
+
 var SideScroller = SideScroller || {};
 
 SideScroller.Boot = function(){};
