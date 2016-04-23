@@ -240,7 +240,7 @@ SideScroller.Game.prototype = {
     }else{
 
       //Kongregate highscore
-      // kongregate.stats.submit("highscore",score);
+      kongregate.stats.submit("highscore",score);
 
       this.game.camera.flash("0xE83838");
 

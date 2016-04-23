@@ -1,6 +1,6 @@
-// kongregateAPI.loadAPI(function(){
-//   window.kongregate = kongregateAPI.getAPI();
-// });
+kongregateAPI.loadAPI(function(){
+  window.kongregate = kongregateAPI.getAPI();
+});
 
 var SideScroller = SideScroller || {};
 
