@@ -74,8 +74,10 @@ SideScroller.Game.prototype = {
     //create player
     if(localStorage.getItem("specialPlayer")=="true"){
       this.player = this.game.add.sprite(100, 400, 'player2');
+      plGravity=2000;
     }else{
       this.player = this.game.add.sprite(100, 400, 'player1');
+      plGravity=1000;
     }
     //Environment2
     this.light = this.game.add.tileSprite(0,0,800,100, 'light');
