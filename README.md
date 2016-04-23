@@ -1,7 +1,7 @@
 # GamesOfGravity
 An endless runner game, made with Phaser framework, in which you have to collect coins and avoid boxes.<br>
 
-Currently tested only on Google Chrome!<br>
+<b>Currently tested only on Google Chrome, Mozilla Firefox, Waterfox, Internet Explorer, Microsoft Edge!</b><br>
 
 Features:<br>
 
