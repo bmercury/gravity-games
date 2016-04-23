@@ -226,8 +226,11 @@ SideScroller.Game.prototype = {
 
     this.playSound(this.coinSound);
 
-    var a = this.game.add.tween(this.coin_icon.scale).to( { y: 1.3, x: 1.3  }, 100, Phaser.Easing.Linear.None, true);
-    a.yoyo(true, 150);
+    if(!magnetActivated){
+      var a = this.game.add.tween(this.coin_icon.scale).to( { y: 1.3, x: 1.3  }, 100, Phaser.Easing.Linear.None, true);
+      a.yoyo(true, 150);  
+    }
+    
     //this.game.add.tween(this.coin_icon.scale).to( { y: 1}, 200, Phaser.Easing.Linear.None, true);
   },
 
@@ -475,6 +478,9 @@ SideScroller.Game.prototype = {
       localStorage.setItem("magnet",false);
       magnetActivated=true;
       this.playSound(this.magnetSound);
+      for(var i=0;i<10;i++){
+        this.game.time.events.add(500*i, this.spawnCoin, this);
+      }
       this.game.time.events.add(25000, function(){magnetActivated=false;});
     }
   },
